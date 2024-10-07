@@ -51,6 +51,7 @@ Error conditions:
 
 --------------------------------------------------------------------------
 """
+import operator
 
 # NOTE - Add import statements to allow access to Python library functions
 # NOTE - Hint:  Look at  https://docs.python.org/3/library/operator.html
@@ -70,6 +71,10 @@ Error conditions:
 operators = {
     # Dictionary syntax:  "key" : "value"
     #   i.e. "function" : operator.<function>
+    "+" : operator.add,
+    "-" : operator.sub,
+    "*" : operator.mul,
+    "/" : operator.truediv
 }
 
 
@@ -87,8 +92,13 @@ def get_user_input():
     try:
         # NOTE - Use "pass" statements to allow code to be run without having to 
         # NOTE - fill out the contents.  This pass statement should be removed    
-        pass
+        number1 = float(input("Input first number"))
+        number2 = float(input("Input second number"))
+        function = float(input("Input function (+, -, *, /): "))
         
+        func = operators[function]
+
+        return (number1, number2, func)
         # NOTE - User input is generally returned as a string and must be translated.
     except:
         print("Invalid Input")
@@ -121,5 +131,11 @@ if __name__ == "__main__":
 
     # NOTE - Use "pass" statements to allow code to be run without having to 
     # NOTE - fill out the contents.  This pass statement should be removed    
-    pass
+    while True:
+        (number1, number2, func) = get_user_input()
+         
+        if (number1 is None) or (number2 is None) or (func is None):
+            print ("Invalid Input")
+            break
+        print(func(number1, number2))
 
