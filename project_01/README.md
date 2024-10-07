@@ -1,1 +1,1 @@
-<h1>Mobile Dog Treat Dispenser</h1>
+<h1>Dog Treat Dispenser</h1>
