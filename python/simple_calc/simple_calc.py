@@ -4,7 +4,7 @@
 Simple Calculator
 --------------------------------------------------------------------------
 License:   
-Copyright 2024 - <NAME>
+Copyright 2024 - Aden Briano
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -74,7 +74,11 @@ operators = {
     "+" : operator.add,
     "-" : operator.sub,
     "*" : operator.mul,
-    "/" : operator.truediv
+    "/" : operator.truediv,
+    ">>": operator.rshift,
+    "<<": operator.lshift,
+    "%" : operator.mod,
+    "**": operator.pow
 }
 
 
@@ -92,9 +96,12 @@ def get_user_input():
     try:
         # NOTE - Use "pass" statements to allow code to be run without having to 
         # NOTE - fill out the contents.  This pass statement should be removed    
-        number1 = float(input("Input first number"))
-        number2 = float(input("Input second number"))
-        function = float(input("Input function (+, -, *, /): "))
+        number1 = float(input("Input first number: "))
+        number2 = float(input("Input second number: "))
+        function = input("Input function (+, -, *, /, <<, >>, %, **): ")
+        if function in ["<<", ">>"]:
+            number1 = int(number1)
+            number2 = int(number2)
         
         func = operators[function]
 
