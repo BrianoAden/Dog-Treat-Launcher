@@ -72,11 +72,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
 from buzzer.buzzer     import Buzzer
-from button.button     import Button
-from infrared.infrared import Infrared
-from crs.crs           import Servo
-from led.led           import LED
-from DCMotor.DC        import DCMotor
+from button            import Button
+from infrared          import Infrared
+from crs               import Servo
+from led               import LED
+from DC.DC             import DCMotor
 from mic.mic           import AudioDetector
 
 # ------------------------------------------------------------------------
@@ -100,18 +100,17 @@ class TreatLauncher():
     blue_button    = None
     yellow_button  = None
     mic            = None
-    infrared       = None
+    ir             = None
     blue_led       = None
     yellow_led     = None
     servo          = None
-    DC1            = None
-    DC2            = None
+    dc             = None
     buzzer         = None
     debug          = None
     
     def __init__(self, reset_time=2.0, blue_button="P2_2", yellow_button = "P2_4",
                        blue_led="P2_6", yellow_led="P2_8",
-                       infrared="P1_29", servo="P2_3", DC = "P1_36",
+                       ir="P1_29", servo="P2_3", dc = "P1_36",
                        buzzer = "P2_1", debug=False):
         """ Initialize variables"""
 
@@ -120,9 +119,9 @@ class TreatLauncher():
         self.yellow_button  = Button(yellow_button)
         self.blue_led       = LED(blue_led)
         self.yellow_led     = LED(yellow_led)
-        self.DC             = DCMotor(DC)
+        self.dc             = DCMotor(dc)
         self.servo          = Servo(servo)
-        self.infrared       = Infrared(infrared)
+        self.ir             = Infrared(ir)
         self.mic            = AudioDetector()
         self.buzzer         = Buzzer(buzzer)
         self.debug          = debug
@@ -209,9 +208,9 @@ class TreatLauncher():
         if self.debug:
             print("launch")
         self.refill()
-        self.DC.on()
+        self.dc.on()
         time.sleep(2)
-        self.DC.off()
+        self.dc.off()
         time.sleep(1)
         self.is_empty()
     #End def
@@ -224,8 +223,8 @@ class TreatLauncher():
         if self.debug:
             print("is_empty")
         start_time = time.time();
-        while self.infrared.is_broken() == False:
-            print(self.infrared.is_broken())
+        while self.ir.is_broken() == False:
+            print(self.ir.is_broken())
             if time.time() - start_time > 5: 
                 self.buzzer.play(3000, length = 3)
                 self.buzzer.stop(0.5)

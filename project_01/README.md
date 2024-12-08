@@ -31,7 +31,7 @@ $ sudo apt-get install -y swig libpulse-dev libasound2-dev <br>
 $ sudo apt-get install libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev <br>
 $ sudo apt-get python-dev <br>
 $ sudo python pyaudio/setup.py install <br>
-$ pip3 install SpeechRecognition==3.9.0 <br>
+$ sudo python3 -m pip install SpeechRecognition==3.9.0 <br>
 <br>
 
 Plug in your USB microphone. Let's check if it's recognized by the PocketBeagle. Run the following command. <br>
