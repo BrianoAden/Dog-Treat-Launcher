@@ -42,6 +42,20 @@ Good, our microphone is almost ready! We just need to set it as our default devi
 $ nano ~/.asoundrc <br>
 Now write in the following. <br>
 
-<img src="nano.png" alt="nano image">
+<img src="nano.png" alt="nano image"> <br>
 
+Redundancy is resiliency, so run this just to be safe. <br>
+$ sudo apt-get install -y python-pyaudio python3-pyaudio <br>
+
+Now we should be good to go!
 </p>
+<h2> Software Operation </h2>
+To auto-run on boot, perform the following. <br>
+$ sudo crontab -e <br>
+Write the following at the bottom of the file <br>
+@reboot sleep 30 && bash /var/lib/cloud9/EDES301/project_01/python/treat_launcher/run > /var/lib/cloud9/logs/cronlog 2>&1<br>
+Now reboot and it should be good! Run the following to kill the processes. <br>
+$ ps -ef <br>
+$ sudo kill -9 (process id(s)) <br>
+Now, you should be set to run the project. In each file under EDES301/project_01/python, there are tests you can use to debug a component.
+I hope everything goes well, and I hope your dog loves it! Good luck building!

@@ -40,15 +40,9 @@ This file provides an interface to an infrared sensor.
 
 
 APIs:
-  - IR_Sensor(pin)
-    - play(frequency, length=1.0, stop=False)
-      - Plays the frequency for the length of time
-
-    - stop(length=0.0)
-      - Stop the buzzer (will cause breaks between tones)
-      
-    - cleanup()
-      - Stop the buzzer and clean up the PWM
+  - IR_Sensor(pin, press_low = True, sleep_time = 0.1)
+    - is_broken()
+      - Returns True if beam is broken. False otherwise.
 
 """
 
@@ -68,11 +62,6 @@ class Infrared():
     broken_value = None
     
     sleep_time = None
-    
-    unbroken_callback = None
-    unbroken_callback_value = None
-    broken_callback = None
-    broken_callback_value = None
     
     def __init__(self, pin="P1_29", press_low = True, sleep_time = 0.1):
         """Initialize fields and set up IRSensor"""
@@ -112,9 +101,6 @@ class Infrared():
            Returns:  True  - beam is broken
                      False - beam is not broken
         """
-        # HW#4 TODO: (one line of code)
-        #   Remove "pass" and return the comparison of input value of the GPIO pin of 
-        #   the buton (i.e. self.pin) to the "pressed value" of the class it
         raw_value = GPIO.input(self.pin)
         print(raw_value)
         return self.broken_value == GPIO.input(self.pin)
@@ -125,38 +111,19 @@ if __name__ == '__main__':
 
     print("IR Test")
     
-    # Create instantiation of the button
+    # Create instantiation of the IR sensor
     ir = Infrared("P1_29")
-
-    # Create functions to test the callback functions
-    def pressed():
-        print("  Button pressed")
-    # End def
-    
-    def unpressed():
-        print("  Button not pressed")
-    # End def
-
-    def on_press():
-        print("  On Button press")
-        return 3
-    # End def
-    
-    def on_release():
-        print("  On Button release")
-        return 4
-    # End def    
     
     # Use a Keyboard Interrupt (i.e. "Ctrl-C") to exit the test
     try:
-        # Check if the button is pressed
+        # Check if the beam is broken
         print("Is the beam broken?")
         print("    {0}".format(ir.is_broken()))
     
         print("Break the beam")
         time.sleep(4)
             
-        # Check if the button is pressed
+        # Check if beam is broken
         print("Is the beam broken?")
         print("    {0}".format(ir.is_broken()))
             

@@ -41,9 +41,10 @@ API:
   Servo(pin)
     - Provide pin that the Servo is connected
   
-    turn(percentage)
-      -   0 = Fully clockwise
-      - 100 = Fully anti-clockwise
+    on()
+      -  Turns DC Motor on at MAX_POWER
+    off()
+      -  Turns DC Motor off. 
 
 """
 import Adafruit_BBIO.PWM as PWM
@@ -105,10 +106,8 @@ class DCMotor():
     # End def
     
     def on(self):
-        """ Turn Servo with desired power
-        
-            100 = Fully clockwise (right)
-            -100 = Fully counterclockwise (left)      
+        """ 
+        Run DC motor at max speed.
         """
         # Record the current power
         self.power = MAX_POWER

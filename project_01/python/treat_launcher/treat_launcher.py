@@ -57,10 +57,8 @@ Requirements:
 
 Uses:
   - Button library developed in class
-    - Library updated to add "set_digit_raw()", "set_colon()"
   - Buzzer library developed in class
   - Servo library developed in class
-    - 
   - LED library developed in class
 
 """

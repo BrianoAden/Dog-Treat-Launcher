@@ -5,9 +5,6 @@ AudioDetector
 License:   
 Copyright 2024 Aden Briano
 
-Based on library from
-
-Copyright 2024 Erik Welsh
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
