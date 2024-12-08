@@ -56,7 +56,8 @@ $ sudo apt-get install -y python-pyaudio python3-pyaudio <br>
 Now we should be good to go!
 </p>
 <h2> Software Operation </h2>
-To auto-run on boot, perform the following. <br>
+If you want to run the program, type sudo ./run into your terminal while in the treat_launcher directory. If this doesn't work, run chmod 755 ./run
+to make it executable. To auto-run on boot, perform the following. <br>
 <br>
 $ sudo crontab -e <br>
 <br>
