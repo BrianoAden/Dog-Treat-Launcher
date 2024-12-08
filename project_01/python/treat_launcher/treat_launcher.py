@@ -71,13 +71,13 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
 
-from buzzer.buzzer     import Buzzer
+from buzzer            import Buzzer
 from button            import Button
 from infrared          import Infrared
 from crs               import Servo
 from led               import LED
-from DC.DC             import DCMotor
-from mic.mic           import AudioDetector
+from DC                import DCMotor
+from mic               import AudioDetector
 
 # ------------------------------------------------------------------------
 # Constants
@@ -119,7 +119,7 @@ class TreatLauncher():
         self.yellow_button  = Button(yellow_button)
         self.blue_led       = LED(blue_led)
         self.yellow_led     = LED(yellow_led)
-        self.dc             = dcMotor(dc)
+        self.dc             = DCMotor(dc)
         self.servo          = Servo(servo)
         self.ir             = Infrared(ir)
         self.mic            = AudioDetector()

@@ -45,9 +45,9 @@ dirs=(
     '/var/lib/cloud9/EDES301/project_01/python/button:'
     '/var/lib/cloud9/EDES301/project_01/python/led:'
     '/var/lib/cloud9/EDES301/project_01/python/crs:'
-    '/var/lib/cloud9/EDES301/project_01/python/buzzer'
-    '/var/lib/cloud9/EDES301/project_01/python/DCMotor'
-    '/var/lib/cloud9/EDES301/project_01/python/mic'
+    '/var/lib/cloud9/EDES301/project_01/python/buzzer:'
+    '/var/lib/cloud9/EDES301/project_01/python/DC:'
+    '/var/lib/cloud9/EDES301/project_01/python/mic:'
 )
 
 PYTHONPATH=$(IFS=; echo "${dirs[*]}") python3 treat_launcher.py
