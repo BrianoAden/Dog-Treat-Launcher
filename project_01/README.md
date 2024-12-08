@@ -23,6 +23,7 @@ There are online resources on how to do this, so I won't walk through it. Once y
 <p>
 Now copy this github repo onto your PocketBeagle using the following command <br>
                                             $ git clone https://github.com/BrianoAden/EDES301 <br>
+<h2> Package Installation </h2>
 In order to run our project, we need to install the following packages: SpeechRecognition, PyAudio. <br> Let's begin the installation process. Run the following commands. <br>
 $ sudo apt-get update <br>
 $ sudo apt-get install -y swig libpulse-dev libasound2-dev <br>
@@ -41,16 +42,6 @@ Good, our microphone is almost ready! We just need to set it as our default devi
 $ nano ~/.asoundrc <br>
 Now write in the following. <br>
 
-pcm.!default { <br>
-        type plug <br>
-        slave { <br>
-                pcm "hw:0,0" <br>
-        } <br>
-}<br>
-<br>
-ctl.!default {<br>
-        type hw<br>
-        card 0<br>
-}<br>
+<img src="nano.png" alt="nano image">
 
 </p>
