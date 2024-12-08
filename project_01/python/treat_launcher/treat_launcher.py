@@ -210,9 +210,8 @@ class TreatLauncher():
         """
         if self.debug:
             print("launch")
-        self.DC.on()
-        time.sleep(1)
         self.refill()
+        self.DC.on()
         time.sleep(2)
         self.DC.off()
         time.sleep(1)
@@ -232,7 +231,7 @@ class TreatLauncher():
             if time.time() - start_time > 5: 
                 self.buzzer.play(3000, length = 3)
                 self.buzzer.stop(0.5)
-        self.listen()
+        self.run()
     #End def
 
     def refill(self):
