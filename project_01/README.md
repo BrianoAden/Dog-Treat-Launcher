@@ -56,6 +56,10 @@ $ sudo apt-get install -y python-pyaudio python3-pyaudio <br>
 Now we should be good to go!
 </p>
 <h2> Software Operation </h2>
+Note! You are required to be connected to the internet to run this project, as the recognize_google() method used by SpeechRecognition requires the internet.
+If you manage to connect to the internet through your laptop, but when you reboot your PocketBeagle it disconnects, try running the following commands. <br>
+$ sudo dhclient usb1 <br>
+It's going to ask for a password. The password is temppwd. <br>
 If you want to run the program, type sudo ./run into your terminal while in the treat_launcher directory. If this doesn't work, run chmod 755 ./run
 to make it executable. To auto-run on boot, perform the following. <br>
 <br>
