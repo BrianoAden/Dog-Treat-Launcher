@@ -36,15 +36,15 @@ Use the following hardware components to make a programmable combination lock:
   - Button
   - Blue LED
   - Continuoous Rotation Servo
-  - DC Motor
+  - dc Motor
   - IR Sensor
   - Buzzer
 
 Requirements:
   - Hardware:
-    - When off:   Blue LEDs are off; Buzzer is off; Continous Rotation Servo is "closed"; DC Motor is off; Microphone is on; IR is on
-    - When bark detected: One of two Blue LEDS comes on for 10 seconds; Corresponding Button waits for input; Servo is "closed"; DC off; Mic on; IR on
-    - When button pressed: LEDs turn off; DC motor on for 1 second; Mic on; IR on; Servo "open"
+    - When off:   Blue LEDs are off; Buzzer is off; Continous Rotation Servo is "closed"; dc Motor is off; Microphone is on; IR is on
+    - When bark detected: One of two Blue LEDS comes on for 10 seconds; Corresponding Button waits for input; Servo is "closed"; dc off; Mic on; IR on
+    - When button pressed: LEDs turn off; dc motor on for 1 second; Mic on; IR on; Servo "open"
     - Button
       - Waiting for a button press should allow the display to update (if necessary) and return any values
       - Time the button was pressed should be recorded and returned
@@ -119,7 +119,7 @@ class TreatLauncher():
         self.yellow_button  = Button(yellow_button)
         self.blue_led       = LED(blue_led)
         self.yellow_led     = LED(yellow_led)
-        self.dc             = DCMotor(dc)
+        self.dc             = dcMotor(dc)
         self.servo          = Servo(servo)
         self.ir             = Infrared(ir)
         self.mic            = AudioDetector()
@@ -203,7 +203,7 @@ class TreatLauncher():
     def launch(self):
         """
             Method to launch treat.
-                -Use DC Motor
+                -Use dc Motor
         """
         if self.debug:
             print("launch")
@@ -267,7 +267,7 @@ class TreatLauncher():
         self.yellow_led.cleanup()
         self.servo.cleanup()
         self.buzzer.cleanup()
-        self.DC.cleanup()
+        self.dc.cleanup()
 
     # End def
 
